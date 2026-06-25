@@ -1,7 +1,6 @@
 pipeline {
 agent any
 
-```
 options {
     buildDiscarder(logRotator(numToKeepStr: '10'))
     timestamps()
@@ -110,6 +109,5 @@ post {
         echo 'Appointment service CI + SonarQube pipeline failed. Check console logs.'
     }
 }
-```
 
 }
