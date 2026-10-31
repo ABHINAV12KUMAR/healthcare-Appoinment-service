@@ -1,0 +1,30 @@
+server:
+  port: 8084
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/appointment_db
+    username: root
+    password: admin123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+services:
+  patient-query-service:
+    url: http://localhost:8082
+    connect-timeout: 2s
+    read-timeout: 3s
+
+logging:
+  level:
+    com.healthcare.appointment: DEBUG
